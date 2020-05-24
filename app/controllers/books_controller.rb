@@ -27,7 +27,7 @@ class BooksController < ApplicationController
     @book = Book.new(book_params)
 
     if @book.save
-      redirect_to @book, notice: 'Book was successfully created.'
+      redirect_to @book, notice: t("books.create.notice")
     else
       render :new
     end
@@ -37,9 +37,9 @@ class BooksController < ApplicationController
   # PATCH/PUT /books/1.json
   def update
     if @book.update(book_params)
-      redirect_to @book, notice: 'Book was successfully updated.'
+      redirect_to @book, notice: t("books.update.notice")
     else
-      render :edit 
+      render :edit
     end
   end
 
@@ -47,7 +47,7 @@ class BooksController < ApplicationController
   # DELETE /books/1.json
   def destroy
     @book.destroy
-    redirect_to books_url, notice: 'Book was successfully destroyed.'
+    redirect_to books_url, notice: t("books.delete.notice")
   end
 
   private
