@@ -10,6 +10,7 @@ ja:
       notice: 本を更新しました
     delete:
       notice: 本を削除しました
+      confirm: 削除してもよろしいですか
   title: タイトル
   memo: メモ
   author: 著者
