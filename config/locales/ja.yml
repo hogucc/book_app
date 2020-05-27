@@ -14,10 +14,6 @@ ja:
       confirm: 削除してもよろしいですか
     deleted:
       notice: 本を削除しました
-  title: タイトル
-  memo: メモ
-  author: 著者
-  picture: 写真
   links:
     show: 詳細
     edit: 編集
