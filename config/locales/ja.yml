@@ -4,13 +4,16 @@ ja:
       title: 本の一覧
     create:
       title: 本の登録
+    created:
       notice: 本を登録しました
     update:
       title: 本の編集
+    updated:
       notice: 本を更新しました
     delete:
-      notice: 本を削除しました
       confirm: 削除してもよろしいですか
+    deleted:
+      notice: 本を削除しました
   title: タイトル
   memo: メモ
   author: 著者
