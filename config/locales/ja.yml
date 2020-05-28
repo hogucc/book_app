@@ -1,0 +1,34 @@
+ja:
+  books: 
+    index:
+      title: 本の一覧
+    create:
+      title: 本の登録
+    created:
+      notice: 本を登録しました
+    update:
+      title: 本の編集
+    updated:
+      notice: 本を更新しました
+    delete:
+      confirm: 削除してもよろしいですか
+    deleted:
+      notice: 本を削除しました
+  links:
+    show: 詳細
+    edit: 編集
+    delete: 削除
+    back: 戻る
+  activerecord:
+    models:
+      book: 本
+    attributes:
+      book:
+        title: タイトル
+        memo: メモ
+        author: 著者
+        picture: 写真
+  helpers:
+    submit:
+      create: 登録する
+      update: 更新する
