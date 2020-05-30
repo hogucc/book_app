@@ -1,7 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <h1><%= t("books.index.title") %></h1>
-
+<%= page_entries_info @books, entry_name: Book.model_name.human %>
+<%= paginate @books %>
 <table>
   <thead>
     <tr>
