@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
       devise_parameter_sanitizer.permit(:sign_up, keys: [:user_name, :postal_code, :address, :self_introduction])
     end
 
-    def after_sign_in_path_for
+    def after_sign_in_path_for(resource_or_scope)
       books_path
     end
 end
