@@ -60,3 +60,4 @@ gem "bcrypt-ruby", "~> 3.0.0"
 
 gem "kaminari"
 gem "devise"
+gem "devise-i18n"
