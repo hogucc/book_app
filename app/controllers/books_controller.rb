@@ -5,7 +5,7 @@ class BooksController < ApplicationController
 
   # GET /books
   def index
-    @books = Book.order(:title).page(params[:page])
+    @books = current_user.books.order(:title).page(params[:page])
   end
 
   # GET /books/1
@@ -14,7 +14,7 @@ class BooksController < ApplicationController
 
   # GET /books/new
   def new
-    @book = Book.new
+    @book = current_user.books.new
   end
 
   # GET /books/1/edit
@@ -23,9 +23,10 @@ class BooksController < ApplicationController
 
   # POST /books
   def create
-    @book = Book.new(book_params)
+    @book = current_user.books.build(book_params)
 
     if @book.save
+      current_user.books << @book
       redirect_to @book, notice: t("books.created.notice")
     else
       render :new
@@ -50,7 +51,7 @@ class BooksController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_book
-      @book = Book.find(params[:id])
+      @book = current_user.books.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
