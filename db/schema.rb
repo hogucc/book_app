@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_23_080836) do
+ActiveRecord::Schema.define(version: 2020_06_04_005516) do
   create_table "books", force: :cascade do |t|
     t.string "title"
     t.text "memo"
@@ -21,4 +21,30 @@ ActiveRecord::Schema.define(version: 2020_05_23_080836) do
     t.string "author"
     t.string "picture"
   end
+
+  create_table "books_users", force: :cascade do |t|
+    t.integer "book_id", null: false
+    t.integer "user_id", null: false
+    t.index ["book_id"], name: "index_books_users_on_book_id"
+    t.index ["user_id"], name: "index_books_users_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "user_name", null: false
+    t.string "postal_code"
+    t.string "address"
+    t.text "self_introduction"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  add_foreign_key "books_users", "books"
+  add_foreign_key "books_users", "users"
 end

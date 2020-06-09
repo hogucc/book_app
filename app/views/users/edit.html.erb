@@ -1,0 +1,35 @@
+<h1><%= t("users.update.title") %></h1>
+
+<%= form_with model: @user do |form| %>
+  <div class="field">
+    <%= form.label :user_name %>
+    <%= form.text_field :user_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :postal_code %>
+    <%= form.text_field :postal_code %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.text_area :address, max_length: "200", size: "40x5" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :self_introduction %>
+    <%= form.text_area :self_introduction, max_length: "200", size: "40x5" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<%= link_to "TOP", root_path %>
+

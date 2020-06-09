@@ -56,5 +56,8 @@ end
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "awesome_print"
 gem "carrierwave"
+gem "bcrypt-ruby", "~> 3.0.0"
 
 gem "kaminari"
+gem "devise"
+gem "devise-i18n"

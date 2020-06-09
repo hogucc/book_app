@@ -32,3 +32,6 @@
 <br>
 
 <%= link_to t("books.create.title"), new_book_path %>
+<%= link_to "プロフィール", user_path(current_user.id) %>
+<%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+
