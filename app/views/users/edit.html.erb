@@ -26,6 +26,11 @@
     <%= form.text_area :self_introduction, max_length: "200", size: "40x5" %>
   </div>
 
+  <div class="field">
+    <%= form.label :avatar %>
+    <%= form.file_field :avatar %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

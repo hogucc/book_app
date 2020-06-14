@@ -6,6 +6,7 @@ class User < ApplicationRecord
   validates :user_name, presence: true, length: { maximum: 30 }
   validates :self_introduction, length: { maximum: 200 }
   has_and_belongs_to_many :books
+  has_one_attached :avatar
 
   def self.find_for_github_oauth(auth, signed_in_resource = nil)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

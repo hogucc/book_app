@@ -1,4 +1,7 @@
 <h1><%= t("users.show.title") %></h1>
+<% if @user.avatar.attached? %>
+  <%= image_tag(@user.avatar.variant(resize_to_fill: [150, 150])) %>
+<% end %>
 <p>
   <strong><%= User.human_attribute_name(:user_name) + ":" %></strong>
   <%= @user.user_name %>
