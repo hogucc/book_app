@@ -4,6 +4,8 @@ ja:
       title: プロフィール
     update:
       title: プロフィールの編集
+    index:
+      title: ユーザー一覧
   activerecord:
     attributes:
       user:

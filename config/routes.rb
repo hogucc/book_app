@@ -6,6 +6,12 @@ Rails.application.routes.draw do
               omniauth_callbacks: "users/omniauth_callbacks"
   }
   resources :books
-  resources :users, only: [:show, :edit, :update]
+  resources :users, only: [:show, :index, :edit, :update]
+  resources :user do
+    member do
+      get :following, :followers
+    end
+  end
+  resources :relationships, only: [:create, :destroy]
   root to: "books#index"
 end
