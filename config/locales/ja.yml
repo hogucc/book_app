@@ -19,6 +19,9 @@ ja:
     edit: 編集
     delete: 削除
     back: 戻る
+  relationship:
+    follow: フォローする
+    unfollow: フォロー解除 
   activerecord:
     models:
       book: 本
