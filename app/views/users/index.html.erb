@@ -16,17 +16,11 @@
         <td><%= user.self_introduction %></td>
         <% if current_user.following?(user) %>
           <td> 
-            <%= form_with model: current_user.active_relationships.find_by(followed_id: user.id),
-                        html: { method: :delete } do |f| %>
-              <%= f.submit t("relationship.unfollow"), class: "btn" %>
-            <% end %>
+            <%= render partial: "unfollow_button", locals: {user_id: user.id} %>
           </td>
         <% else %>
           <td> 
-            <%= form_with model: current_user.active_relationships.build do |f| %>
-              <div><%= hidden_field_tag :followed_id, user.id %></div>
-              <%= f.submit t("relationship.follow") %>
-            <% end %>
+            <%= render partial: "following_button", locals: {user_id: user.id} %>
           </td>
         <% end %>
       </tr>
