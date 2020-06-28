@@ -19,6 +19,10 @@ ja:
     edit: 編集
     delete: 削除
     back: 戻る
+    top: TOP
+    profile: プロフィール
+    user_list: ユーザー一覧
+    logout: ログアウト
   relationship:
     follow: フォローする
     unfollow: フォロー解除 

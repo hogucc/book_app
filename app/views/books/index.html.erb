@@ -20,7 +20,7 @@
       <tr>
         <td>
           <% if book.users.first&.id  %>
-            <%= link_to t(book.users.first&.user_name), user_path(book.users.first&.id) %>
+            <%= link_to book.users.first&.user_name, user_path(book.users.first&.id) %>
           <% end %>
         </td>
         <td><%= book.title %></td>
@@ -40,6 +40,6 @@
 <br>
 
 <%= link_to t("books.create.title"), new_book_path %>
-<%= link_to "プロフィール", user_path(current_user.id) %>
-<%= link_to "ユーザー一覧", users_path %>
-<%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+<%= link_to t("links.profile"), user_path(current_user.id) %>
+<%= link_to t("links.user_list"), users_path %>
+<%= link_to t("links.logout"), destroy_user_session_path, method: :delete %>
