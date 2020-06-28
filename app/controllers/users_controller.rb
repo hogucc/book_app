@@ -32,14 +32,14 @@ class UsersController < ApplicationController
     @title = "フォロー"
     @user  = User.find(params[:id])
     @users = @user.following
-    render 'show_follow'
+    render "show_follow"
   end
 
   def followers
     @title = "フォロワー"
     @user  = User.find(params[:id])
     @users = @user.followers
-    render 'show_follow'
+    render "show_follow"
   end
 
   private
