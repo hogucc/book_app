@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   }
   resources :books
   resources :users, only: [:show, :index, :edit, :update]
-  resources :user do
+  resources :users do
     member do
       get :following, :followers
     end

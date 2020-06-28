@@ -2,6 +2,19 @@
 <% if @user.avatar.attached? %>
   <%= image_tag(@user.avatar.variant(resize_to_fill: [150, 150])) %>
 <% end %>
+
+<p>
+  <%= link_to "#{@following_count}フォロー中", following_user_path(@user.id) %>
+  <%= link_to "#{@followers_count}フォロワー", followers_user_path(@user.id) %>
+</p>
+
+<% if @user.id == current_user.id %>
+  <%= link_to t("users.update.title"), edit_user_path %>
+<% elsif current_user.following?(@user) %>
+  <%= render partial: "unfollow_button", locals: {user_id: @user.id} %>
+<% else %>
+  <%= render partial: "following_button", locals: {user_id: @user.id} %>
+<% end %>
 <p>
   <strong><%= User.human_attribute_name(:user_name) + ":" %></strong>
   <%= @user.user_name %>
@@ -23,11 +36,4 @@
   <%= @user.self_introduction %>
 </p>
 
-<% if @user.id == current_user.id %>
-  <%= link_to t("users.update.title"), edit_user_path %>
-<% elsif current_user.following?(@user) %>
-  <%= render partial: "unfollow_button", locals: {user_id: @user.id} %>
-<% else %>
-  <%= render partial: "following_button", locals: {user_id: @user.id} %>
-<% end %>
 <%= link_to t("links.top"), root_path %>
