@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class BooksController < ApplicationController
-  before_action :set_book, only: [:show, :edit, :update, :destroy]
+  before_action :set_current_user_book, only: [:edit, :update, :destroy]
 
   # GET /books
   def index
@@ -10,6 +10,8 @@ class BooksController < ApplicationController
 
   # GET /books/1
   def show
+    @book = Book.find(params[:id])
+    @user_id = @book.users.first.id
   end
 
   # GET /books/new
@@ -50,7 +52,7 @@ class BooksController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_book
+    def set_current_user_book
       @book = current_user.books.find(params[:id])
     end
 
