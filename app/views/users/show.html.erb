@@ -4,8 +4,8 @@
 <% end %>
 
 <p>
-  <%= link_to "#{@following_count}フォロー中", following_user_path(@user.id) %>
-  <%= link_to "#{@followers_count}フォロワー", followers_user_path(@user.id) %>
+  <%= link_to "#{@following_count}フォロー中", user_followings_path(@user.id) %>
+  <%= link_to "#{@followers_count}フォロワー", user_followers_path(@user.id) %>
 </p>
 
 <% if @user.id == current_user.id %>
