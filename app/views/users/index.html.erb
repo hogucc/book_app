@@ -1,0 +1,31 @@
+<h1><%= t("users.index.title") %></h1>
+<table>
+  <thead>
+    <tr>
+      <th><%= User.human_attribute_name(:user_name) %></th>
+      <th><%= User.human_attribute_name(:self_introduction) %></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <% next if current_user.id == user.id %>
+        <td><%= link_to user.user_name, user_path(user.id) %></td>
+        <td><%= user.self_introduction %></td>
+        <% if current_user.following?(user) %>
+          <td> 
+            <%= render partial: "unfollow_button", locals: {user_id: user.id} %>
+          </td>
+        <% else %>
+          <td> 
+            <%= render partial: "following_button", locals: {user_id: user.id} %>
+          </td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t("links.top"), root_path %>
