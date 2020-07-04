@@ -1,6 +1,6 @@
-<h1>Editing Report</h1>
+<h1><%= t("reports.update.title") %></h1>
 
 <%= render 'form', report: @report %>
 
-<%= link_to 'Show', @report %> |
-<%= link_to 'Back', reports_path %>
+<%= link_to t("links.show"), @report %> |
+<%= link_to t("links.back"), reports_path %>

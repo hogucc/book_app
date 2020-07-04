@@ -14,6 +14,21 @@ ja:
       confirm: 削除してもよろしいですか
     deleted:
       notice: 本を削除しました
+  reports: 
+    index:
+      title: 日報の一覧
+    create:
+      title: 日報の登録
+    created:
+      notice: 日報を登録しました
+    update:
+      title: 日報の編集
+    updated:
+      notice: 日報を更新しました
+    delete:
+      confirm: 削除してもよろしいですか
+    deleted:
+      notice: 日報を削除しました
   links:
     show: 詳細
     edit: 編集
@@ -29,12 +44,16 @@ ja:
   activerecord:
     models:
       book: 本
+      report: 日報
     attributes:
       book:
         title: タイトル
         memo: メモ
         author: 著者
         picture: 写真
+      report:
+        title: タイトル
+        content: 内容
   views:
     pagination:
       first: 先頭
