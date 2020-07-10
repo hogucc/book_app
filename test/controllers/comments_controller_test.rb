@@ -1,4 +1,6 @@
-require 'test_helper'
+# frozen_string_literal: true
+
+require "test_helper"
 
 class CommentsControllerTest < ActionDispatch::IntegrationTest
   setup do
@@ -16,7 +18,7 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create comment" do
-    assert_difference('Comment.count') do
+    assert_difference("Comment.count") do
       post comments_url, params: { comment: { body: @comment.body } }
     end
 
@@ -39,7 +41,7 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should destroy comment" do
-    assert_difference('Comment.count', -1) do
+    assert_difference("Comment.count", -1) do
       delete comment_url(@comment)
     end
 

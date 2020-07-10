@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ReportsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_current_user_report, only: [:edit, :update, :destroy]

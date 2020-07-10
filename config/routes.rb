@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :books do
     resources :comments, only: [:create, :edit, :update, :destroy], module: :books
   end
-  
+
   resources :users, only: [:show, :index, :edit, :update]
   resources :users do
     resources :followings, only: [:index], controller: "users/followings"
