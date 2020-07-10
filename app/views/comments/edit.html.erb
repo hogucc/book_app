@@ -1,6 +1,5 @@
-<h1>Editing Comment</h1>
+<h1><%= t("reports.update.title") %></h1>
 
-<%= render 'form', comment: @comment %>
+<%= render partial: "form", locals: { commentable: @commentable, comment: @comment} %>
 
-<%= link_to 'Show', @comment %> |
-<%= link_to 'Back', comments_path %>
+<%= link_to t("links.back"), @commentable %>

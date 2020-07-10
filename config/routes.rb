@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :comments
-  resources :reports
+  resources :reports do
+    resources :comments, only: [:create, :edit, :update, :destroy], module: :reports
+  end
   devise_for :users, controllers: {
               registrations: "users/registrations",
               omniauth_callbacks: "users/omniauth_callbacks"

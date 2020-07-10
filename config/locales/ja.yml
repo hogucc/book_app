@@ -29,6 +29,21 @@ ja:
       confirm: 削除してもよろしいですか
     deleted:
       notice: 日報を削除しました
+  comments: 
+    index:
+      title: コメント 
+    create:
+      title: コメントの投稿
+    created:
+      notice: コメントしました
+    update:
+      title: コメントの編集
+    updated:
+      notice: コメントを更新しました
+    delete:
+      confirm: 削除してもよろしいですか
+    deleted:
+      notice: コメントを削除しました
   links:
     show: 詳細
     edit: 編集
@@ -45,6 +60,7 @@ ja:
     models:
       book: 本
       report: 日報
+      comment: コメント
     attributes:
       book:
         title: タイトル
@@ -54,6 +70,8 @@ ja:
       report:
         title: タイトル
         content: 内容
+      comment:
+        body: 内容
   views:
     pagination:
       first: 先頭
