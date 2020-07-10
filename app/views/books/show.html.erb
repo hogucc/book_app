@@ -24,3 +24,30 @@
   <%= link_to t("links.edit"), edit_book_path(@book) %>
 <% end %>
 <%= link_to t("links.back"), books_path %>
+
+<h3><%= t("comments.index.title") %></h3>
+<table>
+  <thead>
+    <tr>
+      <th><%= User.human_attribute_name(:user_name) %></th>
+      <th><%= Comment.human_attribute_name(:body) %></th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @book.comments.each do |comment| %>
+      <tr>
+        <td><%= comment.user.user_name %></td>
+        <td><%= comment.body %></td>
+        <% if comment.user == current_user %>
+          <td><%= link_to t("links.edit"), [:edit, comment.commentable, comment] %></td>
+          <td><%= link_to t("links.delete"), [comment.commentable, comment], method: :delete, data: { confirm: t("comments.delete.confirm") } %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= render partial: "comments/form", locals: { commentable: @book, comment: @book.comments.new } %>
+
+<%= link_to t("links.back"), books_path %>
