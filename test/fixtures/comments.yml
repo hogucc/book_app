@@ -1,0 +1,9 @@
+book_comment:
+  body: 本へのコメント
+  commentable: book1 (Book)
+  user: alice
+
+report_comment:
+  body: 日報へのコメント
+  commentable: report1 (Report)
+  user: alice
