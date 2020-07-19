@@ -22,8 +22,8 @@
 
 <% if @user_id == current_user.id %>
   <%= link_to t("links.edit"), edit_book_path(@book) %>
+  <%= link_to t("links.delete"), @book, method: :delete, data: { confirm: t("books.delete.confirm") } %>
 <% end %>
-<%= link_to t("links.back"), books_path %>
 
 <h3><%= t("comments.index.title") %></h3>
 <table>
