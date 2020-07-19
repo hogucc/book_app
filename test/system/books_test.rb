@@ -31,7 +31,7 @@ class BooksTest < ApplicationSystemTestCase
     fill_in "タイトル", with: @book.title
     fill_in "メモ", with: @book.memo
     fill_in "著者", with: @book.author
-    assert_difference 'Book.count', 1 do
+    assert_difference "Book.count", 1 do
       click_on "登録する"
     end
 
@@ -44,7 +44,7 @@ class BooksTest < ApplicationSystemTestCase
   test "updating a Book" do
     visit books_url
     click_on "編集", match: :first
- 
+
     fill_in "タイトル", with: "タイトル：リーダブルコード"
     fill_in "メモ", with: "メモ：オライリージャパン"
     fill_in "著者", with: "著者：Dustin Boswell"
@@ -62,6 +62,6 @@ class BooksTest < ApplicationSystemTestCase
       click_on "削除", match: :first
     end
 
-    assert_text "本を削除しました" 
+    assert_text "本を削除しました"
   end
 end

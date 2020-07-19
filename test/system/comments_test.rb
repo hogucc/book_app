@@ -35,12 +35,12 @@ class CommentsTest < ApplicationSystemTestCase
 
   test "updating a Book Comment" do
     visit book_url(@book)
-    
+
     within(".comment") do
       click_on "編集"
     end
 
-    fill_in "内容", with: "本のコメントを更新" 
+    fill_in "内容", with: "本のコメントを更新"
     click_on "コメントする"
 
     assert_text "コメントを更新しました"
@@ -49,12 +49,12 @@ class CommentsTest < ApplicationSystemTestCase
 
   test "updating a Report Comment" do
     visit report_url(@report)
-    
+
     within(".comment") do
       click_on "編集"
     end
 
-    fill_in "内容", with: "日報のコメントを更新" 
+    fill_in "内容", with: "日報のコメントを更新"
     click_on "コメントする"
 
     assert_text "コメントを更新しました"
@@ -62,18 +62,18 @@ class CommentsTest < ApplicationSystemTestCase
   end
 
   test "destroying a Book Comment" do
-    visit book_url(@book) 
+    visit book_url(@book)
     page.accept_confirm do
-       within(".comment") do
-        click_on "削除"
-      end
+      within(".comment") do
+       click_on "削除"
+     end
     end
 
     assert_text "コメントを削除しました"
   end
 
   test "destroying a Report Comment" do
-    visit report_url(@report) 
+    visit report_url(@report)
     page.accept_confirm do
       within(".comment") do
         click_on "削除"

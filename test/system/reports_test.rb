@@ -29,11 +29,11 @@ class ReportsTest < ApplicationSystemTestCase
 
     fill_in "タイトル", with: @report.content
     fill_in "内容", with: @report.title
-    assert_difference 'Report.count', 1 do
+    assert_difference "Report.count", 1 do
       click_on "登録する"
     end
 
-    assert_text "日報を登録しました" 
+    assert_text "日報を登録しました"
   end
 
   test "updating a Report" do
@@ -41,7 +41,7 @@ class ReportsTest < ApplicationSystemTestCase
     click_on "編集", match: :first
 
     fill_in "タイトル", with: "タイトル：日報サンプル"
-    fill_in "内容", with: "内容：はじめて日報を書いてみました。" 
+    fill_in "内容", with: "内容：はじめて日報を書いてみました。"
     click_on "更新する"
 
     assert_text "日報を更新しました"

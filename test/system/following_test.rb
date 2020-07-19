@@ -8,7 +8,7 @@ class ReportsTest < ApplicationSystemTestCase
   def setup
     @user = users(:alice)
     @other = users(:tom)
-    sign_in @user 
+    sign_in @user
   end
 
   test "following page" do
@@ -31,7 +31,7 @@ class ReportsTest < ApplicationSystemTestCase
 
   test "following user" do
     visit user_path(@other)
-    click_button "フォローする" 
+    click_button "フォローする"
 
     assert has_link?("1フォロワー")
   end

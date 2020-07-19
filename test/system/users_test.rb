@@ -32,7 +32,7 @@ class UsersTest < ApplicationSystemTestCase
     fill_in "住所", with: "東京都中央区日本橋1-1-1"
     fill_in "自己紹介", with: "よろしくお願いします。"
     click_on "更新する"
- 
+
     assert_text "プロフィール"
     assert_text "carol"
     assert_text "carol@example.com"
