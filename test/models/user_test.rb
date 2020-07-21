@@ -3,7 +3,7 @@
 require "test_helper"
 
 class UserTest < ActiveSupport::TestCase
-  def test_find_for_github_oauth
+  test "find_for_github_oauth" do
     auth = OmniAuth::AuthHash.new(
       uid: "1",
       provider: "github",
@@ -17,13 +17,13 @@ class UserTest < ActiveSupport::TestCase
     assert alice.uid == auth_user.uid
   end
 
-  def test_before_follow
+  test "before_follow" do
     alice = users(:alice)
     bob = users(:bob)
     assert_not alice.following?(bob)
   end
 
-  def test_follow
+  test "follow" do
     alice = users(:alice)
     bob = users(:bob)
 
@@ -32,7 +32,7 @@ class UserTest < ActiveSupport::TestCase
     assert bob.followers.include?(alice)
   end
 
-  def test_unfollow
+  test "unfollow" do
     alice = users(:alice)
     bob = users(:bob)
 
