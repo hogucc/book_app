@@ -24,7 +24,7 @@ class BooksTest < ApplicationSystemTestCase
     assert_text "Dustin Boswell"
   end
 
-  test "creating a Book" do
+  test "creating a book" do
     visit books_url
     click_on "本の登録"
 
@@ -41,7 +41,7 @@ class BooksTest < ApplicationSystemTestCase
     assert_text "Dustin Boswell"
   end
 
-  test "updating a Book" do
+  test "updating a book" do
     visit books_url
     click_on "編集", match: :first
 
@@ -56,7 +56,7 @@ class BooksTest < ApplicationSystemTestCase
     assert_text "著者：Dustin Boswell"
   end
 
-  test "destroying a Book" do
+  test "destroying a book" do
     visit books_url
     page.accept_confirm do
       click_on "削除", match: :first

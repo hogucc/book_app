@@ -13,7 +13,7 @@ class CommentsTest < ApplicationSystemTestCase
     @report_comment = comments(:report_comment)
   end
 
-  test "creating a Book Comment" do
+  test "creating a book comment" do
     visit book_url(@book)
 
     fill_in "内容", with: "本にコメントしてみた"
@@ -23,7 +23,7 @@ class CommentsTest < ApplicationSystemTestCase
     assert_text "本にコメントしてみた"
   end
 
-  test "creating a Report Comment" do
+  test "creating a report comment" do
     visit report_url(@report)
 
     fill_in "内容", with: "日報にコメントしてみた"
@@ -33,7 +33,7 @@ class CommentsTest < ApplicationSystemTestCase
     assert_text "日報にコメントしてみた"
   end
 
-  test "updating a Book Comment" do
+  test "updating a book comment" do
     visit book_url(@book)
 
     within(".comment") do
@@ -47,7 +47,7 @@ class CommentsTest < ApplicationSystemTestCase
     assert_text "本のコメントを更新"
   end
 
-  test "updating a Report Comment" do
+  test "updating a report comment" do
     visit report_url(@report)
 
     within(".comment") do
@@ -61,7 +61,7 @@ class CommentsTest < ApplicationSystemTestCase
     assert_text "日報のコメントを更新"
   end
 
-  test "destroying a Book Comment" do
+  test "destroying a book comment" do
     visit book_url(@book)
     page.accept_confirm do
       within(".comment") do
@@ -72,7 +72,7 @@ class CommentsTest < ApplicationSystemTestCase
     assert_text "コメントを削除しました"
   end
 
-  test "destroying a Report Comment" do
+  test "destroying a report comment" do
     visit report_url(@report)
     page.accept_confirm do
       within(".comment") do

@@ -23,7 +23,7 @@ class ReportsTest < ApplicationSystemTestCase
     assert_text "はじめて日報を書いてみました。"
   end
 
-  test "creating a Report" do
+  test "creating a report" do
     visit reports_url
     click_on "日報の登録"
 
@@ -36,7 +36,7 @@ class ReportsTest < ApplicationSystemTestCase
     assert_text "日報を登録しました"
   end
 
-  test "updating a Report" do
+  test "updating a report" do
     visit reports_url
     click_on "編集", match: :first
 
@@ -49,7 +49,7 @@ class ReportsTest < ApplicationSystemTestCase
     assert_text "内容：はじめて日報を書いてみました。"
   end
 
-  test "destroying a Report" do
+  test "destroying a report" do
     visit reports_url
     page.accept_confirm do
       click_on "削除", match: :first
