@@ -2,10 +2,10 @@
 
 require "application_system_test_case"
 
-class ReportsTest < ApplicationSystemTestCase
+class FollowingTest < ApplicationSystemTestCase
   include Devise::Test::IntegrationHelpers
 
-  def setup
+  setup do
     @user = users(:alice)
     @other = users(:tom)
     sign_in @user
