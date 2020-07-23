@@ -31,7 +31,11 @@ class FollowingTest < ApplicationSystemTestCase
 
   test "following user" do
     visit user_path(@other)
-    click_button "フォローする"
+
+    assert_difference "@user.following.count" do
+      click_button "フォローする"
+      until find_button("commit").value == "フォロー解除"; end
+    end
 
     assert has_link?("1フォロワー")
   end
@@ -39,7 +43,11 @@ class FollowingTest < ApplicationSystemTestCase
   test "unfollow user" do
     @other = users(:chris)
     visit user_path(@other)
-    click_button "フォロー解除"
+
+    assert_difference "@user.following.count", -1 do
+      click_button "フォロー解除"
+      until find_button("commit").value == "フォローする"; end
+    end
 
     assert has_link?("0フォロワー")
   end
