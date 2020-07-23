@@ -1,0 +1,7 @@
+one:
+  follower: bob
+  followed: alice
+
+two:
+  follower: alice
+  followed: chris

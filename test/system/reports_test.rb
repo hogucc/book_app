@@ -3,45 +3,58 @@
 require "application_system_test_case"
 
 class ReportsTest < ApplicationSystemTestCase
+  include Devise::Test::IntegrationHelpers
+
   setup do
-    @report = reports(:one)
+    sign_in users(:alice)
+    @report = reports(:report1)
   end
 
   test "visiting the index" do
     visit reports_url
-    assert_selector "h1", text: "Reports"
+    assert_selector "h1", text: "日報の一覧"
   end
 
-  test "creating a Report" do
+  test "visiting the show" do
     visit reports_url
-    click_on "New Report"
+    click_on "詳細", match: :first
 
-    fill_in "Content", with: @report.content
-    fill_in "Title", with: @report.title
-    click_on "Create Report"
-
-    assert_text "Report was successfully created"
-    click_on "Back"
+    assert_text "日報サンプル"
+    assert_text "はじめて日報を書いてみました。"
   end
 
-  test "updating a Report" do
+  test "creating a report" do
     visit reports_url
-    click_on "Edit", match: :first
+    click_on "日報の登録"
 
-    fill_in "Content", with: @report.content
-    fill_in "Title", with: @report.title
-    click_on "Update Report"
-
-    assert_text "Report was successfully updated"
-    click_on "Back"
-  end
-
-  test "destroying a Report" do
-    visit reports_url
-    page.accept_confirm do
-      click_on "Destroy", match: :first
+    fill_in "タイトル", with: @report.content
+    fill_in "内容", with: @report.title
+    assert_difference "Report.count", 1 do
+      click_on "登録する"
     end
 
-    assert_text "Report was successfully destroyed"
+    assert_text "日報を登録しました"
+  end
+
+  test "updating a report" do
+    visit reports_url
+    click_on "編集", match: :first
+
+    fill_in "タイトル", with: "タイトル：日報サンプル"
+    fill_in "内容", with: "内容：はじめて日報を書いてみました。"
+    click_on "更新する"
+
+    assert_text "日報を更新しました"
+    assert_text "タイトル：日報サンプル"
+    assert_text "内容：はじめて日報を書いてみました。"
+  end
+
+  test "destroying a report" do
+    visit reports_url
+    page.accept_confirm do
+      click_on "削除", match: :first
+    end
+
+    assert_text "日報を削除しました"
   end
 end

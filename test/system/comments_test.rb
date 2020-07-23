@@ -3,43 +3,83 @@
 require "application_system_test_case"
 
 class CommentsTest < ApplicationSystemTestCase
+  include Devise::Test::IntegrationHelpers
+
   setup do
-    @comment = comments(:one)
+    sign_in users(:alice)
+    @book = books(:book1)
+    @report = reports(:report1)
+    @book_comment = comments(:book_comment)
+    @report_comment = comments(:report_comment)
   end
 
-  test "visiting the index" do
-    visit comments_url
-    assert_selector "h1", text: "Comments"
+  test "creating a book comment" do
+    visit book_url(@book)
+
+    fill_in "内容", with: "本にコメントしてみた"
+    click_on "コメントする"
+
+    assert_text "コメントしました"
+    assert_text "本にコメントしてみた"
   end
 
-  test "creating a Comment" do
-    visit comments_url
-    click_on "New Comment"
+  test "creating a report comment" do
+    visit report_url(@report)
 
-    fill_in "Body", with: @comment.body
-    click_on "Create Comment"
+    fill_in "内容", with: "日報にコメントしてみた"
+    click_on "コメントする"
 
-    assert_text "Comment was successfully created"
-    click_on "Back"
+    assert_text "コメントしました"
+    assert_text "日報にコメントしてみた"
   end
 
-  test "updating a Comment" do
-    visit comments_url
-    click_on "Edit", match: :first
+  test "updating a book comment" do
+    visit book_url(@book)
 
-    fill_in "Body", with: @comment.body
-    click_on "Update Comment"
-
-    assert_text "Comment was successfully updated"
-    click_on "Back"
-  end
-
-  test "destroying a Comment" do
-    visit comments_url
-    page.accept_confirm do
-      click_on "Destroy", match: :first
+    within(".comment") do
+      click_on "編集"
     end
 
-    assert_text "Comment was successfully destroyed"
+    fill_in "内容", with: "本のコメントを更新"
+    click_on "コメントする"
+
+    assert_text "コメントを更新しました"
+    assert_text "本のコメントを更新"
+  end
+
+  test "updating a report comment" do
+    visit report_url(@report)
+
+    within(".comment") do
+      click_on "編集"
+    end
+
+    fill_in "内容", with: "日報のコメントを更新"
+    click_on "コメントする"
+
+    assert_text "コメントを更新しました"
+    assert_text "日報のコメントを更新"
+  end
+
+  test "destroying a book comment" do
+    visit book_url(@book)
+    page.accept_confirm do
+      within(".comment") do
+       click_on "削除"
+     end
+    end
+
+    assert_text "コメントを削除しました"
+  end
+
+  test "destroying a report comment" do
+    visit report_url(@report)
+    page.accept_confirm do
+      within(".comment") do
+        click_on "削除"
+      end
+    end
+
+    assert_text "コメントを削除しました"
   end
 end
